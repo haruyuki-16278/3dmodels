@@ -1,4 +1,4 @@
-*cube(10);
-*cube([10, 20, 30]);
-*cube([10, 20, 30], true);
-cube(size = [10, 20, 30], center = true);
+*sphere(r = 10, $fn = 5);
+scale([1, 1, 0.5]) {
+    sphere(r = 10);
+}
