@@ -1,8 +1,4 @@
-translate([10, 0, 0]) {
-    %cube(10);
-    rotate([45, 0, 0]) cube(10);
-    *translate([15, 15, 0]) {
-        #cube(10);
-        rotate([45, 0, 0]) cube(5);
-    }
-}
+*cube(10);
+*cube([10, 20, 30]);
+*cube([10, 20, 30], true);
+cube(size = [10, 20, 30], center = true);
