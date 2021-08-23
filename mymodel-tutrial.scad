@@ -1,15 +1,10 @@
-*for (n=[-20:5:20]) {
-   translate([n, n, 0]){
-       if (n%10 == 0){
-           cube(2);
-       } else {
-           cube(1);
-       }
-   }
+module cross(size=2) {
+    cube([size, 1, 1], true);
+    rotate([0, 0, 90]) {
+        cube([size, 1, 1], true);
+    }
 }
 
-for (n=[-20:5:20]) {
-   translate([n, n, 0]){
-       cube(n % 10 ==0 ? 2 : 1);
-   }
-}
+cross();
+translate([5, 5, 0]) cross(5);
+translate([5, -5, 0]) cross(3);
