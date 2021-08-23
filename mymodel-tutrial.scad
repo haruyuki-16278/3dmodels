@@ -5,6 +5,10 @@ module cross(size=2) {
     }
 }
 
-cross();
-translate([5, 5, 0]) cross(5);
-translate([5, -5, 0]) cross(3);
+function f(x) = 0.05 * x * x -10;
+
+for (x = [-20:5:20]) {
+    translate([x, f(x), 0]) {
+        cross();
+    }
+}
