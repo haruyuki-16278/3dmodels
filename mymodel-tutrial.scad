@@ -1,4 +1,14 @@
-*cylinder(h=30, r=10);
-*cylinder(h=30, r1=10, r2=0);
-*cylinder(h=30, r1=10, r2=0, center=true);
-cylinder(h=30, r1=10, r2=0, center=true, $fn=4);
+polyhedron (
+    points = [
+        [0, 0, 1],
+        [0, 0, 0],
+        [1, 0, 0],
+        [0, 1, 0]
+    ],
+    faces = [
+        [0, 2, 1],
+        [0, 3, 2],
+        [0, 1, 3],
+        [1, 2, 3]
+    ]
+);
