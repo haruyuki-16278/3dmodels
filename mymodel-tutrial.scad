@@ -1,5 +1,13 @@
-rotate_extrude() {
-    translate([10, 0, 0]) {
-        square([5, 10]);
-    }
+*intersection() {
+    cube([8, 2, 1], true);
+    cube([2, 8, 1], true);
+}
+
+*difference() {
+    cube([8, 2, 1], true);
+    cube([2, 8, 1], true);
+}
+difference() {
+    cube([2, 8, 1], true);
+    cube([8, 2, 1], true);
 }
