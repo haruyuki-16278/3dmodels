@@ -1,15 +1,13 @@
-square([5,10], center=true);
-translate([10, 0, 0]) {
-    circle(5);
-}
-translate([20, 0, 0]) {
-    text("d");
+*square([5, 10]);
+
+*linear_extrude(height=30) {
+    square([5, 10]);
 }
 
-translate([30, 0, 0]) {
-    polygon(points = [
-        [0, 0],
-        [0, 10],
-        [10, 10]
-    ]);
+*linear_extrude(height=30, scale=0.5) {
+    square([5, 10]);
+}
+
+linear_extrude(height=30, scale=0.5, twist=45) {
+    square([5, 10]);
 }
