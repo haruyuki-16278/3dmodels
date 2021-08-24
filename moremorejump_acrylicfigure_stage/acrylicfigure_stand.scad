@@ -121,7 +121,7 @@ module bigheart3d() {
       bigheart2d();
     }
   }
-  #translate([-21, -5, 2.5]) {
+  translate([-21, -5, 2.5]) {
     rotate([90, 0, 0]) {
       cylinder(h=9 ,r=2);
     }
@@ -229,61 +229,84 @@ module sidedeco() {
   }
 }
 
+module groove() {
+  linear_extrude(height=2){
+    difference() {
+      circle(r=200);
+      circle(r=178);
+    }
+  }
+}
+
+
 // main render
-color("#2f2f2f"){
-  standbase();
-}
-
-color("#88ddff"){
-  translate([57.5, 70, 10]){
-    rotate([90, 0, 0]){
-      mainDisplay();
-    }
-  }
-}
-
-color("#ff88aa"){
-  translate([46, 69, 9]) {
-    rotate([90, 0, 0]){
-      bardeco();
-    }
-  }
-  translate([116, 69, 9]) {
-    rotate([90, 0, 0]){
-      bardeco();
-    }
-  }
-}
-
-color("#eedd55"){
-  translate([77.5, 78, 14]){
-  // translate([0, -50, 14]){
-    rotate([90, 0, 0]) {
-      bigheart3d();
-    }
-  }
-}
-
-color("#00ff55"){
-  translate([85, 73, 70]) {
-    rotate([90, 0, 0]) {
-      scale([0.5, 0.5, 0.5]) {
-        logo();
+// *difference() {
+  color("#2f2f2f"){
+    difference() {
+      standbase();
+      translate([85, -160, 3]){
+        groove();
       }
     }
-    
   }
-}
 
-color("#5577ff") {
-  translate([0.5, 55, 11]) {
-    rotate([90, 0, 15]) {
-      sidedeco();
+  color("#88ddff"){
+    translate([57.5, 70, 10]){
+      rotate([90, 0, 0]){
+        mainDisplay();
+      }
     }
   }
-  translate([130, 65, 11]) {
-    rotate([90, 0, -15]) {
-      sidedeco();
+
+  color("#ff88aa"){
+    translate([46, 69, 9]) {
+      rotate([90, 0, 0]){
+        bardeco();
+      }
+    }
+    translate([116, 69, 9]) {
+      rotate([90, 0, 0]){
+        bardeco();
+      }
     }
   }
-}
+
+  color("#eedd55"){
+    translate([77.5, 78, 14]){
+    // translate([0, -50, 14]){
+      rotate([90, 0, 0]) {
+        bigheart3d();
+      }
+    }
+  }
+
+  color("#00ff55"){
+    translate([85, 73, 70]) {
+      rotate([90, 0, 0]) {
+        scale([0.5, 0.5, 0.5]) {
+          logo();
+        }
+      }
+      
+    }
+  }
+
+  color("#5577ff") {
+    translate([0.5, 55, 11]) {
+      rotate([90, 0, 15]) {
+        sidedeco();
+      }
+    }
+    translate([130, 65, 11]) {
+      rotate([90, 0, -15]) {
+        sidedeco();
+      }
+    }
+  }
+// }
+
+*mainDisplay();
+*bardeco();
+*bigheart3d();
+*logo();
+*sidedeco();
