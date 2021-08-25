@@ -123,12 +123,12 @@ module bigheart3d() {
       }
     }
   }
-  translate([-19, -8, 2.5]) {
+  translate([-19, -7, 2.5]) {
     rotate([90, 0, 0]) {
       cylinder(h=9 ,r=2);
     }
   }
-  translate([35, -8, 2.5]) {
+  translate([35, -7, 2.5]) {
     rotate([90, 0, 0]) {
       cylinder(h=9 ,r=2);
     }
@@ -322,6 +322,6 @@ module backdeco() {
 
 *mainDisplay();
 *bardeco();
-*backdeco();
+!backdeco();
 *logo();
 *sidedeco();
