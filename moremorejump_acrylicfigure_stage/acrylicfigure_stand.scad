@@ -109,7 +109,7 @@ module bigheart2d() {
         }
       }
     }
-    translate([7, -20, 0]) {
+    translate([7, -23, 0]) {
       square(size=[60, 30], center=true);
     }
   }
@@ -118,15 +118,17 @@ module bigheart2d() {
 module bigheart3d() {
   linear_extrude(height=5) {
     scale([1.2, 1.2, 1.2]){
-      bigheart2d();
+      translate([0, 2, 0]) {
+        bigheart2d();
+      }
     }
   }
-  translate([-21, -5, 2.5]) {
+  translate([-19, -8, 2.5]) {
     rotate([90, 0, 0]) {
       cylinder(h=9 ,r=2);
     }
   }
-  translate([37, -5, 2.5]) {
+  translate([35, -8, 2.5]) {
     rotate([90, 0, 0]) {
       cylinder(h=9 ,r=2);
     }
@@ -136,33 +138,33 @@ module bigheart3d() {
 module heart2d() {
   difference() {
     union() {
-      translate([-2, 0, 0]) {
+      translate([-1, 0, 0]) {
         rotate([0, 0, 30]) {
           scale([0.7, 1, 1]) {
-            circle(r=10);
+            circle(r=5);
           }
         }
       }
-      translate([2, 0, 0]) {
+      translate([1, 0, 0]) {
         rotate([0, 0, -30]) {
           scale([0.7, 1, 1]) {
-            circle(r=10);
+            circle(r=5);
           }
         }
       }
     }
     union() {
-      translate([-2, 0, 0]) {
+      translate([-1, 0, 0]) {
         rotate([0, 0, 30]) {
           scale([0.7, 1, 1]) {
-            circle(r=8);
+            circle(r=3);
           }
         }
       }
-      translate([2, 0, 0]) {
+      translate([1, 0, 0]) {
         rotate([0, 0, -30]) {
           scale([0.7, 1, 1]) {
-            circle(r=8);
+            circle(r=3);
           }
         }
       }
@@ -173,7 +175,7 @@ module heart2d() {
 module clover2d() {
   for (deg = [0:120:240]) {
     rotate([0, 0, deg]) {
-      translate([0, 9.3, 0]) {
+      translate([0, 4.5, 0]) {
         heart2d();
       }
     }
@@ -188,15 +190,16 @@ module clover3d() {
 }
 
 module logo() {
-  translate([0, -50, 0]) {
-    rotate([0, 0, -7.5]) {
+  rotate([0, 0, -10]) {
+    clover3d();
+  }
+  translate([0, 0, 2]) {
+    rotate([0, 0, 10]) {
       clover3d();
     }
-    translate([0, 0, 2]) {
-      rotate([0, 0, 7.5]) {
-        clover3d();
-      }
-    }
+  }
+  translate([0, 0, -2.5]) {
+    cylinder(r=2, h=5, center=true);
   }
 }
 
@@ -230,17 +233,31 @@ module sidedeco() {
 }
 
 module groove() {
-  linear_extrude(height=2){
-    difference() {
-      circle(r=200);
-      circle(r=187);
+  rotate([0, 0, 6]) {
+    linear_extrude(height=2){
+      difference() {
+        circle(r=200, $fn=30);
+        circle(r=189);
+      }
     }
   }
 }
 
+module backdeco() {
+  difference() {
+    translate([-7.8, 0, 0]) {
+      bigheart3d();
+    }
+    translate([0, 27, 5]) {
+      logo();
+    }
+  }
+}
+
+// !backdeco();
 
 // main render
-// *difference() {
+// difference() {
   color("#2f2f2f"){
     difference() {
       standbase();
@@ -251,7 +268,7 @@ module groove() {
   }
 
   color("#88ddff"){
-    translate([57.5, 70, 10]){
+    translate([57.5, 68, 10]){
       rotate([90, 0, 0]){
         mainDisplay();
       }
@@ -272,20 +289,18 @@ module groove() {
   }
 
   color("#eedd55"){
-    translate([77.5, 78, 15]){
+    translate([85, 78, 17]){
     // translate([0, -50, 14]){
       rotate([90, 0, 0]) {
-        bigheart3d();
+        backdeco();
       }
     }
   }
 
   color("#00ff55"){
-    translate([85, 73, 70]) {
+    translate([85, 73, 44]) {
       rotate([90, 0, 0]) {
-        scale([0.5, 0.5, 0.5]) {
-          logo();
-        }
+        logo();
       }
       
     }
@@ -307,6 +322,6 @@ module groove() {
 
 *mainDisplay();
 *bardeco();
-*bigheart3d();
+*backdeco();
 *logo();
 *sidedeco();
