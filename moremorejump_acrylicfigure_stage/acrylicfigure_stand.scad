@@ -52,7 +52,7 @@ module mainDisplay() {
   translate([7, -10, 0]) {
     cube([3, 10, 3]);
   }
-  translate([50, -10, 0]) {
+  translate([45, -10, 0]) {
     cube([3, 10, 3]);
   }
 }
@@ -233,7 +233,7 @@ module groove() {
   linear_extrude(height=2){
     difference() {
       circle(r=200);
-      circle(r=178);
+      circle(r=187);
     }
   }
 }
@@ -272,7 +272,7 @@ module groove() {
   }
 
   color("#eedd55"){
-    translate([77.5, 78, 14]){
+    translate([77.5, 78, 15]){
     // translate([0, -50, 14]){
       rotate([90, 0, 0]) {
         bigheart3d();
