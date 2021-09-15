@@ -9,8 +9,8 @@ module cross_section() {
             [18,65],
             [5,65],
             [0,55],
-            [-10,55],
-            [-10,58],
+            [-20,55],
+            [-20,58],
             [-2,58],
             [3,68],
             [20,68],
@@ -36,7 +36,7 @@ module cross_section() {
 
 module mute_base() {
     rotate_extrude(convexity=30) {
-        translate([10, 0, 0]){
+        translate([20, 0, 0]){
             cross_section();
         }
     }
@@ -49,8 +49,8 @@ mute_base();
     mute_base();
     for(a=[0:12:360]){
         rotate([0, 45, a]) {
-            translate([-28, 0, 67]) {
-                cylinder(r=0.6, h=10, center=true, $fn=20);
+            translate([-21, 0, 75]) {
+                #cylinder(r=0.6, h=10, center=true, $fn=20);
             }   
         }
     }
