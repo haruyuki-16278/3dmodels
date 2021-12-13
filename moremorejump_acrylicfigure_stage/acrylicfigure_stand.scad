@@ -321,7 +321,6 @@ module backdeco() {
 // }
 
 *mainDisplay();
-*bardeco();
-!backdeco();
+*bardeco();*!backdeco();
 *logo();
 *sidedeco();
